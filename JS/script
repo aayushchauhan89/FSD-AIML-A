@@ -1,0 +1,80 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // API URL from which to fetch user data
+    const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+
+    // Get references to the HTML elements we will be interacting with
+    const tableBody = document.getElementById('table-body');
+    const loadingIndicator = document.getElementById('loading');
+
+    /**
+     * Fetches data from the API and populates the table.
+     */
+    async function fetchAndDisplayUsers() {
+        // Show the loading indicator
+        loadingIndicator.style.display = 'block';
+        tableBody.innerHTML = ''; // Clear previous data
+
+        try {
+            // Fetch data from the API
+            const response = await fetch(apiUrl);
+
+            // Check if the request was successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Parse the JSON data from the response
+            const users = await response.json();
+
+            // Check if the users array is empty
+            if (users.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="5">No users found.</td></tr>';
+                return;
+            }
+
+            // Iterate over each user and create a table row
+            users.forEach(user => {
+                // Create a new table row element
+                const row = document.createElement('tr');
+
+                // Create a cell for each piece of user data
+                // and append it to the row
+                const idCell = document.createElement('td');
+                idCell.textContent = user.id;
+                row.appendChild(idCell);
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = user.name;
+                row.appendChild(nameCell);
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = user.email;
+                row.appendChild(emailCell);
+
+                const phoneCell = document.createElement('td');
+                phoneCell.textContent = user.phone;
+                row.appendChild(phoneCell);
+
+                const websiteCell = document.createElement('td');
+                websiteCell.textContent = user.website;
+                row.appendChild(websiteCell);
+                
+                // Append the completed row to the table body
+                tableBody.appendChild(row);
+            });
+
+        } catch (error) {
+            // If an error occurs, log it and display an error message in the table
+            console.error('Error fetching data:', error);
+            tableBody.innerHTML = `<tr><td colspan="5">Failed to load data. Error: ${error.message}</td></tr>`;
+        
+        } finally {
+            // Hide the loading indicator regardless of success or failure
+            loadingIndicator.style.display = 'none';
+        }
+    }
+
+    // Call the function to fetch and display users when the page loads
+    fetchAndDisplayUsers();
+});

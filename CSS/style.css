@@ -1,0 +1,63 @@
+/* General body styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container to center the content */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between borders */
+    margin-top: 20px;
+}
+
+/* Table header and cell styling */
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Table header specific styling */
+thead tr {
+    background-color: #2980b9;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Zebra-striping for table rows */
+tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for table rows */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Loading text style */
+#loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+}

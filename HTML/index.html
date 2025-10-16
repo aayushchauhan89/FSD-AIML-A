@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First web page</title>
+    <title>API Data in Table</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>hello dear</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci laborum dolorum eaque distinctio atque sunt porro id omnis, quae, quod tenetur ab doloremque sed nobis aliquid et, maiores reprehenderit error.</p>
-    <h2>new headache</h2>
-    <script src="app.js"></script>
+
+    <div class="container">
+        <h1>Users from API</h1>
+        
+        <p id="loading">Loading data...</p>
+
+        <table id="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
